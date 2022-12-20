@@ -37,7 +37,7 @@ export function setupCanvas(element: HTMLCanvasElement) {
     canvasSizes.width / canvasSizes.height
   );
   const renderer = new THREE.WebGLRenderer({ canvas: element });
-  const geometry = new THREE.BoxGeometry(2, 0.1, 1);
+  const geometry = new THREE.BoxGeometry(4.5, 2, 2);
   const material = new THREE.MeshBasicMaterial({ color: "white" });
   const cube = new THREE.Mesh(geometry, material);
 
@@ -63,8 +63,8 @@ export function setupCanvas(element: HTMLCanvasElement) {
   mesh.position.x = 2;
   scene.add(mesh);
 
-  const axesHelper = new THREE.AxesHelper(5);
-  scene.add(axesHelper);
+  // const axesHelper = new THREE.AxesHelper(5);
+  //scene.add(axesHelper);
 
   let time = 0;
 
@@ -74,7 +74,6 @@ export function setupCanvas(element: HTMLCanvasElement) {
     requestAnimationFrame(animate);
     mesh.rotation.x -= 0.01;
     mesh.rotation.y -= 0.005;
-    cube.rotation.x = 1;
     uniforms.u_time.value = time;
     time += 0.01;
     renderer.render(scene, camera);
